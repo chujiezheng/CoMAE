@@ -45,5 +45,5 @@ You can download our propossed data [here](https://drive.google.com/drive/folder
 
 ## Model Implementation
 
-The model implementation is integrated in this [repo]([chujiezheng/UniModel (github.com)](https://github.com/chujiezheng/UniModel)).
+The model implementation is integrated in the repo [chujiezheng/UniModel (github.com)](https://github.com/chujiezheng/UniModel).
 
