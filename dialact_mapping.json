@@ -1,0 +1,10 @@
+{
+  "acknowledging": ["acknowledging"],
+  "agreeing": ["agreeing"],
+  "consoling": ["consoling"],
+  "encouraging": ["encouraging"],
+  "questioning": ["questioning"],
+  "sympathizing": ["sympathizing"],
+  "wishing": ["wishing"],
+  "others": ["neutral", "suggesting"]
+}
