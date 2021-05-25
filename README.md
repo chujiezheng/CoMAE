@@ -21,7 +21,7 @@ If you use our codes or your research is related to our paper, please kindly cit
 
 You can download our propossed data [here](https://drive.google.com/drive/folders/1QYRgQb7X-kK6tdM_CwqN8TOhnQJF7m34?usp=sharing). However, the released data is a bit different from the used data in our paper.
 
-- Data size. We found that a RoBERTa classifier may suffer from the unblanced labels. Hence, for all the factors, we instead use BERT as classifiers. As a result, the filtered data based on CM have a larger size than that reported in our paper
+- Data size. We found that a RoBERTa classifier may suffer from the unbalanced labels. Hence, for all the factors, we instead use BERT as classifiers. As a result, the filtered data based on CM have a larger size than that reported in our paper
 - Taxonomies of DA and EM. We modified the adopted taxonomies of both DA and EM (please refer to the json files in this repo) because:
   - For DA, we found that suggestion is not categorized as a dialog act of expressed empathy (see [the paper of CM](https://arxiv.org/abs/2009.08441)). To keep consistent with the CM paper, we merged suggestion with others
   - For EM, we modified the taxonomies to reduce the overlaps between different emotions
