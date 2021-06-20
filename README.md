@@ -2,6 +2,8 @@
 
 Codes and data for the ACL 2021-Findings paper: **[CoMAE: A Multi-factor Hierarchical Framework for Empathetic Response Generation](https://arxiv.org/abs/2105.08316)**
 
+If you have any problem or suggestion, feel free to contact me: chujiezhengchn@gmail.com
+
 If you use our codes or your research is related to our paper, please kindly cite our paper:
 
 ```
