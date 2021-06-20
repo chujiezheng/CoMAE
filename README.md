@@ -6,7 +6,7 @@ If you have any problem or suggestion, feel free to contact me: chujiezhengchn@g
 
 If you use our codes or your research is related to our paper, please kindly cite our paper:
 
-```
+```bib
 @inproceedings{zheng-etal-2021-comae,
     title = "CoMAE: A Multi-factor Hierarchical Framework for Empathetic Response Generation",
     author = "Zheng, Chujie  and
