@@ -676,7 +676,7 @@ def top_k_top_p_filtering(
     logits: Tensor,
     top_k: int = 0,
     top_p: float = 1.0,
-    filter_value: float = -1e5,
+    filter_value: float = float('-inf'),
     min_tokens_to_keep: int = 1
 ) -> Tensor:
     """Filter a distribution of logits using top-k and/or nucleus (top-p) filtering

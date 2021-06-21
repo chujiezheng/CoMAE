@@ -58,12 +58,12 @@ class BaseFramework(PreTrainedModel):
 
         # set eos token prob to zero if min_length is not reached
         if eos_token_id is not None and cur_len < min_length:
-            scores[:, eos_token_id] = -1e5
+            scores[:, eos_token_id] = float('-inf')
         
         if unk_token_id is not None and unk_token_id != eos_token_id:
-            scores[:, unk_token_id] = -1e5
+            scores[:, unk_token_id] = float('-inf')
         if bos_token_id is not None and bos_token_id != eos_token_id:
-            scores[:, bos_token_id] = -1e5
+            scores[:, bos_token_id] = float('-inf')
 
         if no_repeat_ngram_size > 0:
             # calculate a list of banned tokens to prevent repetitively generating the same ngrams
@@ -73,7 +73,7 @@ class BaseFramework(PreTrainedModel):
                 input_ids, num_batch_hypotheses, no_repeat_ngram_size, cur_len, scores.size(1)
             )
             for i, banned_tokens in enumerate(banned_batch_tokens):
-                scores[i, banned_tokens] = -1e5
+                scores[i, banned_tokens] = float('-inf')
 
         if bad_words_ids is not None:
             # Exclude EOS token (already processed)
@@ -229,5 +229,5 @@ def set_scores_to_inf_for_banned_tokens(scores: torch.Tensor, banned_tokens: Lis
     # [ 1  0  0 ]
 
     banned_mask = torch.sparse.LongTensor(banned_mask.t(), indices, scores.size()).to(scores.device).to_dense().bool()
-    scores.masked_fill_(banned_mask, -1e5)
+    scores.masked_fill_(banned_mask, float('-inf'))
 
