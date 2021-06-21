@@ -15,6 +15,13 @@
 }
 ```
 
+## Preparing Enviroment
+
+```bash
+conda env create -f env.yml -n UniModel
+conda activate UniModel
+```
+
 ## Downloading Model
 
 You should download the [GPT-2](https://huggingface.co/facebook/gpt2) model and replace the fake `pytorch_model.bin` file in `GPT2-small` with the true one.
