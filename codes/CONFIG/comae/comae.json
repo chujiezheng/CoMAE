@@ -1,0 +1,31 @@
+{
+  "model_type": "comae",
+  "tokenizer_type": "gpt2",
+  "tokenizer_path": "./GPT2-small",
+
+  "decoder_type": "gpt2",
+  "decoder_checkpoint": "./GPT2-small/pytorch_model.bin",
+
+  "decoder_config": {
+    "activation_function": "gelu_new",
+    "bos_token_id": 50256,
+    "eos_token_id": 50256,
+    "unk_token_id": 50256,
+    "pad_token_id": 50256,
+    "sep_token_id": 50256,
+    "attn_pdrop": 0.1,
+    "embd_pdrop": 0.1,
+    "initializer_range": 0.02,
+    "layer_norm_epsilon": 1e-05,
+    "n_ctx": 1024,
+    "n_embd": 768,
+    "n_head": 12,
+    "n_layer": 12,
+    "n_positions": 1024,
+    "resid_pdrop": 0.1,
+    "vocab_size": 50257,
+
+    "add_type_vocab": true,
+    "type_vocab_size": 2
+  }
+}
