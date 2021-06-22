@@ -425,7 +425,7 @@ def _generate_beam_search(
     
     # generated hypotheses
     generated_hyps = [
-        BeamHypotheses(num_beams, max_length, length_penalty, early_stopping=early_stopping)
+        BeamHypotheses(num_beams, max_length, min_length, length_penalty, early_stopping=early_stopping)
         for _ in range(batch_size)
     ]
 
@@ -557,6 +557,8 @@ def _generate_beam_search(
                 effective_beam_id = batch_idx * num_beams + beam_id
                 # add to generated hypotheses if end of sentence
                 if (eos_token_id is not None) and (token_id.item() == eos_token_id):
+                    if gen_len < min_length:
+                        print('eos!!! gen_len', gen_len, 'batch_idx', batch_idx, 'beam_token_rank', beam_token_rank, 'beam_id', beam_id, 'token_id', token_id)
                     # if beam_token does not belong to top num_beams tokens, it should not be added
                     is_beam_token_worse_than_top_num_beams = beam_token_rank >= num_beams
                     if is_beam_token_worse_than_top_num_beams:
@@ -635,7 +637,7 @@ def _generate_beam_search(
         for beam_id in range(num_beams):
             effective_beam_id = batch_idx * num_beams + beam_id
             final_score = beam_scores[effective_beam_id].item()
-            final_tokens = input_ids[effective_beam_id]
+            final_tokens = output_ids[effective_beam_id]
             generated_hyps[batch_idx].add(final_tokens, final_score)
 
     # depending on whether greedy generation is wanted or not define different output_batch_size and output_num_return_sequences_per_batch
@@ -676,7 +678,7 @@ def top_k_top_p_filtering(
     logits: Tensor,
     top_k: int = 0,
     top_p: float = 1.0,
-    filter_value: float = float('-inf'),
+    filter_value: float = -1e5,
     min_tokens_to_keep: int = 1
 ) -> Tensor:
     """Filter a distribution of logits using top-k and/or nucleus (top-p) filtering
@@ -714,11 +716,12 @@ def top_k_top_p_filtering(
 
 
 class BeamHypotheses(object):
-    def __init__(self, num_beams, max_length, length_penalty, early_stopping):
+    def __init__(self, num_beams, max_length, min_length, length_penalty, early_stopping):
         """
         Initialize n-best list of hypotheses.
         """
         self.max_length = max_length - 1  # ignoring bos_token
+        self.min_length = min_length
         self.length_penalty = length_penalty
         self.early_stopping = early_stopping
         self.num_beams = num_beams
