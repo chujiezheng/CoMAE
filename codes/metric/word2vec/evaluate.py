@@ -12,7 +12,7 @@ except ImportError:
 
 class Embedding(object):
     def __init__(self):
-        path = '/home/zhengchujie/wordvector/english/glove6B'
+        path = '/home/zhengchujie/wordvector/english/glove6B' # please modify the path manually
         self.m = KeyedVectors.load(os.path.join(path, 'glove.6B.300d.model.bin'), mmap='r')
         try:
             self.unk = self.m.vectors.mean(axis=0)

@@ -26,6 +26,8 @@ conda activate UniModel
 
 You should download the [GPT-2](https://huggingface.co/facebook/gpt2) model and replace the fake `pytorch_model.bin` file in `GPT2-small` with the true one.
 
+If you would like to evaluate generated results with Embedding-based similarity, you can download my prepared embedding files from [here](https://drive.google.com/drive/folders/11TwzwDtQoFHynlG0b1uT1MPQz9Jctb66?usp=sharing).
+
 ## Preprocessing Training Data
 
 First, put the downloaded data into `_reformat`.
