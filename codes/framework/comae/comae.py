@@ -152,7 +152,7 @@ class CoMAE(BaseFramework):
         idx = torch.arange(0, hidden_states.size(0), dtype=torch.long, device=hidden_states.device)
         last_hidden_states = hidden_states[idx, src_len - 1].contiguous()
         logits = F.linear(self.emotion_head(
-            torch.cat([last_hidden_states, encoded_info['tgt_mechanism_additive_embeds'], encoded_info['tgt_emotion_additive_embeds']], dim=-1)
+            torch.cat([last_hidden_states, encoded_info['tgt_mechanism_additive_embeds'], encoded_info['tgt_dialact_additive_embeds']], dim=-1)
         ), self.emotion_embeddings.weight)
         
         if tgt_emotion_id is not None:
