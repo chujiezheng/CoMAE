@@ -24,7 +24,7 @@ conda activate UniModel
 
 ## Downloading Model
 
-You should download the [GPT-2](https://huggingface.co/facebook/gpt2) model and replace the fake `pytorch_model.bin` file in `GPT2-small` with the true one.
+You should download the [GPT-2](https://huggingface.co/gpt2) model and replace the fake `pytorch_model.bin` file in `GPT2-small` with the true one.
 
 If you would like to evaluate generated results with Embedding-based similarity, you can download my prepared embedding files from [here](https://drive.google.com/drive/folders/11TwzwDtQoFHynlG0b1uT1MPQz9Jctb66?usp=sharing).
 
@@ -36,7 +36,7 @@ Then, run `bash RUN/comae/prepare.sh` to preprocess the training data.
 
 ## Training Your Model
 
-Run `bash RUN/comae/train_vanilla.sh` to train your model.
+Run `bash RUN/comae/train.sh` to train your model.
 
 ## Inference with Your Model
 
