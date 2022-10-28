@@ -21,7 +21,7 @@ If you use our codes or your research is related to our paper, please kindly cit
 
 ## Data
 
-You can download our propossed data [here](https://1drv.ms/u/s!Aky8v8NZbQx1qjj0aAr--c33hNHY?e=TwudDN). However, the released data is a bit different from the used data in our paper.
+You can download our propossed data [here](https://1drv.ms/f/s!Aky8v8NZbQx1qjj0aAr--c33hNHY). However, the released data is a bit different from the used data in our paper.
 
 - Data size. We found that a RoBERTa classifier may suffer from the unbalanced labels. Hence, for all the factors, we instead use BERT as classifiers. As a result, the filtered data based on CM have a larger size than that reported in our paper
 - Taxonomies of DA and EM. We modified the adopted taxonomies of both DA and EM (please refer to the json files in this repo) because:
