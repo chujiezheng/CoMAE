@@ -15,7 +15,7 @@ If you use our codes or your research is related to our paper, please kindly cit
       Leng, Yongcai  and
       Huang, Minlie",
     booktitle = "Findings of ACL 2021",
-    year = "2021",
+    year = "2021"
 }
 ```
 
